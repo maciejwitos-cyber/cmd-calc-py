@@ -8,7 +8,6 @@ def usage():
     print("\tmul")
     print("\tdiv\n")
 
-
 def main():
 
     if (len(sys.argv) == 4):
@@ -18,22 +17,22 @@ def main():
         # sys.argv[2] - działanie
         # sys.argv[3] - druga liczba
 
-        num1 = int(sys.argv[1])
-        num2 = int(sys.argv[3])
-
-        match sys.argv[2]:
-
-            case "add":
-                print(f"{num1} +{num2} = {num1 + num2}")
-            case "sub":
-                print(f"{num1} - {num2} = {num1 - num2}")
-            case "mul":
-                print(f"{num1} * {num2} = {num1 * num2}")
-            case "div":
-                print(f"{num1} / {num2} = {num1 / num2}")
-            case _:
-                usage()
-
+        try:
+            num1 = int(sys.argv[1])
+            num2 = int(sys.argv[3])
+            match sys.argv[2]:
+                case "add":
+                    print(f"{num1} +{num2} = {num1 + num2}")
+                case "sub":
+                    print(f"{num1} - {num2} = {num1 - num2}")
+                case "mul":
+                    print(f"{num1} * {num2} = {num1 * num2}")
+                case "div":
+                    print(f"{num1} / {num2} = {num1 / num2}")
+                case _:
+                    usage()
+        except ValueError:
+            usage()
     else:
         usage()
 
